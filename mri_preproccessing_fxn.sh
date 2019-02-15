@@ -55,6 +55,17 @@ function create_mrisubj_run_list(){
 
 }
 
+function create_taskdesign_runlist(){
+    runs="$@"
+
+    datapath='/oak/stanford/groups/menon/projects/daelsaid/2019_met/data/subjectlist/'
+
+    rm ${datapath}/runlist_taskdesign.txt;
+
+    for run in $runs; do echo -e "${run}"; done >> ${datapath}/runlist_taskdesign.txt;
+
+}
+
 function create_spgr_subjlist_csv(){
     pid=$1
     visit=$2
