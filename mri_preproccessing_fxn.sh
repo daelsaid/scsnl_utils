@@ -19,7 +19,7 @@ function add_new_pid_behav() {
 
     rm ${behav_proj_dir}/subjectlist.csv;
 
-    echo "PID,visit,session" >> ${behav_proj_dir}/training_group.csv
+    echo "PID,visit,session" >> ${behav_proj_dir}/subjectlist.csv
     echo "${pid}","${visit}","${session}" >> ${behav_proj_dir}/subjectlist.csv
 }
 
