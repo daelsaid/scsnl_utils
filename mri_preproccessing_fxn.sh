@@ -6,18 +6,24 @@ function load_preproc_modules(){
     ml R/3.5.1
 }
 
+
 function add_new_pid_behav() {
     pid=$1
     visit=$2
     session=$3
-    behav_proj_dir=$4
 
-    cat ${behav_proj_dir}/subjectlist.csv >> ${compiled_subj_files}/compiled_subjlists/compiled_behav_sublist.csv;
+    behav_proj_dir='/oak/stanford/groups/menon/projects/daelsaid/2019_met/scripts/behavioral'
+    compiled_subj_files='/oak/stanford/groups/menon/projects/daelsaid/2019_met/compiled_subjlists'
+
+    cat ${behav_proj_dir}/subjectlist.csv >> ${compiled_subj_files}/compiled_behav_sublist.csv;
 
     rm ${behav_proj_dir}/subjectlist.csv;
 
+    echo "PID,visit,session" >> ${behav_proj_dir}/training_group.csv
     echo "${pid}","${visit}","${session}" >> ${behav_proj_dir}/subjectlist.csv
 }
+
+
 
 function run_behav() {
     user=$1
@@ -55,15 +61,20 @@ function create_mrisubj_run_list(){
 
 }
 
-function create_taskdesign_runlist(){
+
+function create_taskdesign_runlists(){
     runs="$@"
 
     datapath='/oak/stanford/groups/menon/projects/daelsaid/2019_met/data/subjectlist/'
 
     rm ${datapath}/runlist_taskdesign.txt;
+    rm ${datapath}/runlist_grid.txt;
+    rm ${datapath}/runlist_sym.txt;
 
     for run in $runs; do echo -e "${run}"; done >> ${datapath}/runlist_taskdesign.txt;
 
+    grep 'sym*' runlist_taskdesign.txt >> ${datapath}/runlist_sym.txt
+    grep 'grid'* runlist_taskdesign.txt >> ${datapath}/runlist_grid.txt
 }
 
 function create_spgr_subjlist_csv(){

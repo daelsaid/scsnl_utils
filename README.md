@@ -1,1 +1,1 @@
-# scsnl_fmri
+# scsnl imaging functions
