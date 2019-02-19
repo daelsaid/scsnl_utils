@@ -19,8 +19,8 @@ function add_new_pid_behav() {
 
     rm ${behav_proj_dir}/subjectlist.csv;
 
-    echo "PID,visit,session" >> ${behav_proj_dir}/subjectlist.csv
-    echo "${pid}","${visit}","${session}" >> ${behav_proj_dir}/subjectlist.csv
+    echo -e "PID,visit,session" >> ${behav_proj_dir}/subjectlist.csv;
+    echo -e "${pid}","${visit}","${session}" >> ${behav_proj_dir}/subjectlist.csv
 }
 
 
@@ -44,9 +44,9 @@ function add_scanid_and_group() {
 
     rm ${behav_proj_dir}/training_group.csv
 
-    echo "scanid,training_group" >> ${behav_proj_dir}/training_group.csv
+    echo -e "scanid,training_group" >> ${behav_proj_dir}/training_group.csv
 
-    echo "${scanid}","${group}" >> ${behav_proj_dir}/training_group.csv
+    echo -e "${scanid}","${group}" >> ${behav_proj_dir}/training_group.csv
 
 }
 
@@ -90,7 +90,7 @@ function create_spgr_subjlist_csv(){
 
     rm ${subjectlist_path}/spgrsubjectlist.csv ;
 
-    echo "${pid}","${visit}","${session}" >> ${subjectlist_path}/spgrsubjectlist.csv
+    echo -e "${pid}","${visit}","${session}" >> ${subjectlist_path}/spgrsubjectlist.csv
 
 }
 
