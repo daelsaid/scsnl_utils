@@ -14,11 +14,17 @@
 `create_spgr_subjlist_csv [pid] [visit] [session]`  
 `create_spgr_names_list [# of spgr names to add]`  
 `compile_behav_and_movementstats [project dir]`  
-
+`scanned_runs [scan_id] [project_dir]`
 
 #### steps
-1. `mlsubmit_owners preprocessfmri.m preprocessfmri_config.m`
-1. `mlsubmit_owners preprocessmri_T1.m preprocessmri_config.m`
-1. `mlsubmit_owners preprocessmri_T2.m preprocessmri_config.m`
 
-2. `mlsubmit_owners movementstats.m movementstatsfmri_config.m`
+1. make sure met_mri_processing_master.sh and met_mri_processing_fxn.sh are in the same project_folder
+
+2. `bash met_mri_processing_master.sh [config_file_path] [project_path] [scan_id] [problemset_group]`
+
+
+3. `mlsubmit_owners preprocessmri_T1.m preprocessmri_config.m`
+3. `mlsubmit_owners preprocessmri_T2.m preprocessmri_config.m`
+4. `mlsubmit_owners preprocessfmri.m preprocessfmri_config.m`
+4. `mlsubmit_owners preprocessfmri.m preprocessfmri_swcar_config.m`
+5. `mlsubmit_owners movementstats.m movementstatsfmri_config.m`

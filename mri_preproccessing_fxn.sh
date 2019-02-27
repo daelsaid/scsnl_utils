@@ -138,7 +138,7 @@ function scanned_runs(){
 function load_modules(){
 	modules="$@"
 
-	for module in ${modules}; do echo "ml"${modules};done
+	for module in ${modules}; do echo `echo `"ml" ${modules}`;done
 }
 
 function run_behav() {
