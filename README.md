@@ -1,9 +1,12 @@
 # scsnl processing functions
 
+ `bash met_mri_processing_master.sh [config_file_path] [project_path] [scan_id] [problemset_group]`
 
 
 #### in draft mode  
 
+
+#### seperate functions used in master
 `load_preproc_modules`  
 `create_new_subject_list [pid] [visit] [session]`  
 `add_new_scan_pid_behav [pid] [visit] [session]`  
