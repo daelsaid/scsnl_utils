@@ -1,14 +1,9 @@
-# scsnl processing functions
-
- `bash met_mri_processing_master.sh [config_file_path] [project_path] [scan_id] [problemset_group]`
+# scsnl met processing functions
 
 
 #### in draft mode  
 
-
-#### seperate functions used in master
 `load_preproc_modules`  
-`create_new_subject_list [pid] [visit] [session]`  
 `add_new_scan_pid_behav [pid] [visit] [session]`  
 `create_behav_training_group_csv [scan_id] [group]`  
 `create_mrisubj_run_list [run1] [run2] [run3] [...]`  
@@ -31,3 +26,7 @@
 4. `mlsubmit_owners preprocessfmri.m preprocessfmri_config.m`
 4. `mlsubmit_owners preprocessfmri.m preprocessfmri_swcar_config.m`
 5. `mlsubmit_owners movementstats.m movementstatsfmri_config.m`
+6. `mlsubmit_owners taskdesign_m2mat.m taskdesign_m2mat_config.m`
+7. `mlsubmit_owners contrastgenerator.m contrastgenerator_config.m`
+8. `mlsubmit_owners individualstatsfmri.m individualstatsfmri_grid_4runs.m`
+8. `mlsubmit_owners individualstatsfmri.m individualstatsfmri_sym_4runs.m`

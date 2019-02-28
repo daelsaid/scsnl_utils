@@ -18,8 +18,6 @@ number_of_structurals=`cat ${subject_list}/subjectlist.csv | wc -l`;
 
 echo $(load_preproc_modules);
 
-echo $(create_main_subjectlist "${pid}" "${visit}" "${session}");
-
 echo $(add_new_scan_pid_behav "${pid}" "${visit}" "${session}");
 
 echo $(create_behav_training_group_csv "${scan_id}" ${problemset_group});
