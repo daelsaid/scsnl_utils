@@ -88,14 +88,14 @@ function gen_csv_all_counts(){
     textfile_type=$1 #mcflirt,  refvol, concat
     output_path=$2
 
-    for voxel_counts in `ls *${textfile_type}*.txt`; do subj=`echo $voxel_counts | cut -d_ -f1`; visit=`echo $voxel_counts | cut -d_ -f2`; session=`echo $voxel_counts | cut -d_ -f3`; scan=`echo $voxel_counts | cut -d_ -f4`; min=`cat $voxel_counts | cut -d ' ' -f1 $voxel_counts | sort -g | head -n 1`; max=`cat $voxel_counts | cut -d ' ' -f1 $voxel_counts | sort -g | tail -n 1`; echo $subj,$visit,$session,$scan,$min,$max;done >> ${output_path}/all_merged_min_max_voxel_counts_by_row.csv
+    for voxel_counts in `ls *${textfile_type}*.txt`; do subj=`echo $voxel_counts | cut -d_ -f1`; visit=`echo $voxel_counts | cut -d_ -f2`; session=`echo $voxel_counts | cut -d_ -f3`; scan=`echo $voxel_counts | cut -d_ -f4`; min=`cat $voxel_counts | cut -d ' ' -f1 $voxel_counts | sort -g | head -n 1`; max=`cat $voxel_counts | cut -d ' ' -f1 $voxel_counts | sort -g | tail -n 1`; echo $subj,$visit,$session,$scan,$min,$max;done >> ${output_path}/all_merged_min_max_voxel_counts_by_row_${textfile_type}.csv
 }
 
 function gen_min_max_voxel_counts(){
     textfile_type=$1 #mcflirt,  refvol, concat
     output_path=$2
 
-    for voxel_counts in `ls *${textfile_type}*.txt`; do subj=`echo $voxel_counts | cut -d_ -f1`; visit=`echo $voxel_counts | cut -d_ -f2`; session=`echo $voxel_counts | cut -d_ -f3`; scan=`echo $voxel_counts | cut -d_ -f4`; all=`cat $voxel_counts | awk -F ' ' '{print $1}' | sort -g`; echo $subj,$visit,$session,$scan,$all;done >> ${output_path}/all_merged_voxel_counts_by_row.csv
+    for voxel_counts in `ls *${textfile_type}*.txt`; do subj=`echo $voxel_counts | cut -d_ -f1`; visit=`echo $voxel_counts | cut -d_ -f2`; session=`echo $voxel_counts | cut -d_ -f3`; scan=`echo $voxel_counts | cut -d_ -f4`; all=`cat $voxel_counts | awk -F ' ' '{print $1}' | sort -g`; echo $subj,$visit,$session,$scan,$all;done >> ${output_path}/all_merged_voxel_counts_by_row_${textfile_type}.csv
 }
 
 

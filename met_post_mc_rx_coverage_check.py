@@ -1,8 +1,11 @@
+#!/usr/bin/python
+
 import os
 import pandas as pd
 import numpy as np
 import sys
-
+import subprocess
+subprocess.call(['pip', 'install', 'pandas'])
 
 file_path=sys.argv[1]
 filename=sys.argv[2]
