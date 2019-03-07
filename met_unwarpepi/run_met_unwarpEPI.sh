@@ -14,7 +14,7 @@ done
 
 # run unwarpepi on each run + it's pepolar scan
 
-for scan in `ls 9496_1_1_sym?*.nii | sort -u` `ls 9496_1_1_grid?*.nii`; do
+for scan in `ls *sym?*.nii | sort -u` `ls *grid?*.nii`; do
     subj_prefix=`echo $scan | cut -d_ -f1-4 | cut -d'.' -f1`;
     subj_visit_date=`echo $scan | cut -d_ -f1-3`;
     task=`echo $scan | cut -d'_' -f4 | cut -d. -f1`;
