@@ -6,8 +6,7 @@ for movconfig in `ls *_movementstatsfmri_config_*.m`; do echo $movconfig; sbatch
 
 #generate all task configs for parallel job submissions
 
-for runlist in `ls *runlist.txt`; do  task=`echo $runlist | grep -v redo | cut -d_ -f1`;  redo_tasks=`echo $runlist | grep redo | cut -d_ -f1-2`;  bash /oak/stanford/groups/menon/projects/daelsaid/2019_met/scripts/config_scripts/movementstats_gen.sh 2019_met subjectlist.csv `echo ${runlist}` `echo ${task}` `echo swau`; bash /oak/stanford/groups/menon/projects/daelsaid/2019_met/scripts/config_scripts/movementstats_gen.sh 2019_met subjectlist.csv `echo ${runlist}` `echo ${redo_tasks}` `echo swau`; done
-
+s
 
 function create_preproc_configs(){
 
