@@ -4,23 +4,23 @@ import shutil
 import sys
 import pandas as pd
 
+
 #define paths to main data dir
-dir=''
+dir='/Users/daelsaid/Downloads/nih_toolbox-selected'
 os.chdir(dir)
 
 #split raw csv data into seperate csv files
-for data in glob(os.path.join(dir,'*.csv')):
-    df=pd.read_csv(data,dtype=str)
-    name=os.path.basename(data)
-    path=os.path.dirname(data)
-    print df.subject
-    # df.rename(columns={'subject':'script.subjectid'},inplace=True)
-    for i,g in df.groupby('subject'):
+for file in glob(os.path.join(dir,'*.csv')):
+    df=pd.read_csv(file,dtype=str)
+    name=os.path.basename(file)
+    path=os.path.dirname(file)
+    print df.PIN #subject ID
+    df.rename(columns={'PIN':'PID'},inplace=True)
+    for i,data in df.groupby('PID'):
         print i
-        subj_x=os.path.dirname(x)
-        csv=x.split('/')
-        csv=csv.split('_')[-1]
-        print csv
-        subj='_'+i+'_tp1_'+csv
-        print subj
-        # g.to_csv('{w}.csv'.format(subj),header=True, index_label=True)
+        subj_x=os.path.dirname(file)
+        csv=file.split('/')
+        csv=file.split('_')[-1].replace(' ','_')
+        subj=i+'_'+'nih_toolbox'+ '_'+csv
+        print "new subj csv:", subj
+        data.to_csv('{}'.format(subj),header=True, index_label=True)
