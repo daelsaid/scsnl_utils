@@ -4,9 +4,12 @@ import shutil
 import sys
 import pandas as pd
 
+# DE V1 05/23/2019
 
 #define paths to main data dir
-dir='/Users/daelsaid/Downloads/nih_toolbox-selected'
+# FEED PATH TO DATA FOLDER and run from commandline
+dir=sys.argv[1]
+# dir='/Users/daelsaid/Downloads/nih_toolbox-selected'
 os.chdir(dir)
 
 #split raw csv data into seperate csv files
