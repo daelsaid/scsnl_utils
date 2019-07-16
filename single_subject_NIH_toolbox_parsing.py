@@ -31,14 +31,14 @@ def main(args):
         df=pd.read_csv(file,dtype=str)
         name=os.path.basename(file)
         path=os.path.dirname(file)
-        print 'Data will be parsed for subject ID:', df.PIN
+        print('Data will be parsed for subject ID:', df.PIN)
         df.rename(columns={'PIN':'PID'},inplace=True)
         for i,data in df.groupby('PID'):
             subj_x=os.path.dirname(file)
             csv=file.split('/')
             csv=file.split('_')[-1].replace(' ','_')
             subj=i+'_'+'nih_toolbox'+ '_'+csv
-            print "new subj csv file:", subj
+            print("new subj csv file:", subj)
             data.to_csv('{}'.format(subj),header=True, index_label=True)
 
 
