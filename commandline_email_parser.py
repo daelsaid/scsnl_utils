@@ -32,9 +32,9 @@ def main(args):
         df=pd.read_csv(file,dtype=str)
         name=os.path.basename(file)
         path=os.path.dirname(file)
-        print df.columns[0] #subject ID
+        print(df.columns[0]) #subject ID
         df.rename(columns={'From: (Name)':'address_email'},inplace=True)
-        print df.columns[2]
+        print(df.columns[2])
         for i,data in df.groupby('address_email'):
             remove_spaces=i.replace(' ','_')
 
@@ -43,7 +43,7 @@ def main(args):
                 csv=file.split('/')
                 csv=file.split('_')[-1].replace(' ','_')
                 subj=remove_spaces+'_'+'brain_development'+ '_'+csv
-                print "new email csv:", subj
+                print("new email csv:", subj)
                 data.to_csv('{}'.format(subj),header=True, index_label=True)
             except:
                 print i, 'has an error'
