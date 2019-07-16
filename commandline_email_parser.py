@@ -46,7 +46,7 @@ def main(args):
                 print("new email csv:", subj)
                 data.to_csv('{}'.format(subj),header=True, index_label=True)
             except:
-                print i, 'has an error'
+                print(i, 'has an error')
 
 
 def parseArguments():
